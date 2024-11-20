@@ -1,0 +1,39 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  transition: 0.3s ease-in-out;
+}
+
+section#color_display {
+  background-color: red;
+  margin: 100px auto;
+  max-width: 400px;
+  background-color: #ffffff;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  padding: 4rem 2rem;
+  border-radius: 10px;
+}
+
+.change_color_btn {
+  width: 100%;
+  padding: 1rem;
+  margin-top: 1.5rem;
+  border: none;
+  outline: none;
+  color: white;
+  background-color: black;
+  font-size: 1.2rem;
+  transition: background-color 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.change_color_btn:hover {
+  background-color: rgb(83, 83, 83);
+}
