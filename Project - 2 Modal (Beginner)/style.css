@@ -1,0 +1,75 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  background-image: url(background.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+button {
+  color: #f2f2f2;
+  background-color: crimson;
+  margin: 2rem;
+  border: none;
+  outline: none;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  box-shadow: 0 0 12px 8px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+button:hover {
+  background-color: #c51a3d;
+}
+
+.modal {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* display: none; */
+
+  opacity: 0;
+  transform: scale(0.9);
+  pointer-events: none; /* Prevent interactions when hidden */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.modal.open {
+  /* display: flex; */
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: all;
+}
+
+.modal_overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.modal_content {
+  background-color: white;
+  padding: 4rem;
+  position: relative;
+  cursor: pointer;
+  border-radius: 3px;
+}

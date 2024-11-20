@@ -1,0 +1,13 @@
+const openModalBtn = document.querySelector(".open_modal");
+const modalElement = document.querySelector(".modal");
+const modalContentElement = document.querySelector(".modal_content");
+
+// OPEN MODAL LOGIC
+openModalBtn.addEventListener("click", () => {
+  modalElement.classList.add("open");
+});
+
+// CLOSE MODAL LOGIC
+modalContentElement.addEventListener("click", () => {
+  modalElement.classList.remove("open");
+});
