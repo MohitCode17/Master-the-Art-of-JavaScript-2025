@@ -1,0 +1,91 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  margin-top: 5rem;
+  background-color: #f3f3f3;
+}
+
+.calculator_wrapper {
+  background-color: #ffffff;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 1.2rem;
+  width: 100%;
+  max-width: 600px;
+  border-radius: 0.5rem;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.label {
+  margin-bottom: 1rem;
+  color: #2c2929;
+}
+
+.input_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+label {
+  color: #2c2929;
+  font-size: 1.1rem;
+}
+
+input {
+  padding: 0.7rem;
+  border-radius: 0.25rem;
+  border: 1px solid #cbcaca;
+}
+
+button {
+  width: 100%;
+  background-color: crimson;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  height: 50px;
+  border-radius: 0.25rem;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+button:hover {
+  background-color: #ee0d3a;
+}
+
+.total_tip_amount {
+  margin-top: 0.75rem;
+  font-size: 1.2rem;
+}
+
+.total_tip_amount span {
+  font-weight: 900;
+}
+
+@media(max-width: 768px) {
+  .calculator_wrapper {
+    background-color: transparent;
+    box-shadow: none;
+  }
+}
+
+@media(max-width: 375px) {
+  .title {
+    text-align: left;
+  }
+}
