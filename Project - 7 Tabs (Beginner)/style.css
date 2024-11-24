@@ -1,0 +1,78 @@
+/* General reset for consistent styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+.section_center {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  background: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.image img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.tabs {
+  margin-top: 20px;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.button {
+  flex: 1;
+  padding: 10px 20px;
+  margin: 0 5px;
+  background: #e0e0e0;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background: #d6d6d6;
+}
+
+.button.live {
+  background: #007bff;
+  color: white;
+}
+
+.tabs-content {
+  border-top: 1px solid #ddd;
+  padding-top: 20px;
+}
+
+.content {
+  display: none;
+  animation: fadeIn 0.3s ease-in;
+}
+
+.content.live {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
