@@ -1,4 +1,4 @@
-import { cart } from "../data/cart.js";
+import { cart, addToCart } from "../data/cart.js";
 import { products } from "../data/products.js";
 
 // Single Product HTML
@@ -70,30 +70,7 @@ document.querySelectorAll(".js-add-to-cart-button").forEach((btn) => {
     const productId = btn.dataset.productId;
 
     // Add to cart
-    let matchingProduct;
-
-    cart.forEach((item) => {
-      if (productId === item.productId) {
-        // Store matching prduct into another variable
-        matchingProduct = item;
-      }
-    });
-
-    // Make Select Box Interactive
-    const selectedQuantityInput = document.querySelector(
-      `.js-quantity-select-${productId}`
-    ).value;
-
-    const selectedQuantity = Number(selectedQuantityInput);
-
-    if (matchingProduct) {
-      matchingProduct.quantity += selectedQuantity;
-    } else {
-      cart.push({
-        productId,
-        quantity: selectedQuantity,
-      });
-    }
+    addToCart(productId);
 
     console.log(cart);
   });
