@@ -64,16 +64,32 @@ document.querySelector(".js-products-grid").innerHTML = productHTML;
 // Challenge - 2 Make "Add to Cart" button functional
 document.querySelectorAll(".js-add-to-cart-button").forEach((btn) => {
   btn.addEventListener("click", () => {
-    // How to know which button should be clicked to add that particular product to the cart
-    // Useing: Data Attribute
-    // Allow to attach information to an element
     const productId = btn.dataset.productId;
 
     // Add to cart
-    cart.push({
-      productId,
-      quantity: 1,
+    // Problem this code: When user click to same product multiple times, instead of increasing the quantity of that product, this make another copy of that product with quantity 1.
+    // 👉 Solution
+    // 1. Check if product is already in the cart
+    // 2. If "YES", increase the quantity
+    // 3. If "NO", add that product to the cart
+
+    let matchingProduct;
+
+    cart.forEach((item) => {
+      if (productId === item.productId) {
+        // Store matching prduct into another variable
+        matchingProduct = item;
+      }
     });
+
+    if (matchingProduct) {
+      matchingProduct.quantity += 1;
+    } else {
+      cart.push({
+        productId,
+        quantity: 1,
+      });
+    }
 
     console.log(cart);
   });
