@@ -30,7 +30,7 @@ products.forEach((product) => {
           )}</div>
 
           <div class="product-quantity-container">
-            <select>
+            <select class="js-quantity-select-${product.id}">
               <option selected value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -61,18 +61,12 @@ products.forEach((product) => {
 // Render products to DOM dynamically
 document.querySelector(".js-products-grid").innerHTML = productHTML;
 
-// Challenge - 2 Make "Add to Cart" button functional
+// Make "Add to Cart" button functional
 document.querySelectorAll(".js-add-to-cart-button").forEach((btn) => {
   btn.addEventListener("click", () => {
     const productId = btn.dataset.productId;
 
     // Add to cart
-    // Problem this code: When user click to same product multiple times, instead of increasing the quantity of that product, this make another copy of that product with quantity 1.
-    // 👉 Solution
-    // 1. Check if product is already in the cart
-    // 2. If "YES", increase the quantity
-    // 3. If "NO", add that product to the cart
-
     let matchingProduct;
 
     cart.forEach((item) => {
@@ -82,12 +76,19 @@ document.querySelectorAll(".js-add-to-cart-button").forEach((btn) => {
       }
     });
 
+    // Make Select Box Interactive
+    const selectedQuantityInput = document.querySelector(
+      `.js-quantity-select-${productId}`
+    ).value;
+
+    const selectedQuantity = Number(selectedQuantityInput);
+
     if (matchingProduct) {
-      matchingProduct.quantity += 1;
+      matchingProduct.quantity += selectedQuantity;
     } else {
       cart.push({
         productId,
-        quantity: 1,
+        quantity: selectedQuantity,
       });
     }
 
