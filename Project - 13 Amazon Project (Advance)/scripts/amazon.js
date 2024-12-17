@@ -64,6 +64,16 @@ products.forEach((product) => {
 // Render products to DOM dynamically
 document.querySelector(".js-products-grid").innerHTML = productHTML;
 
+// 👉 Update cart quantity count to header
+const updateQuantityCount = () => {
+  let quantity = 0;
+  cart.forEach((item) => {
+    quantity += item.quantity;
+  });
+
+  document.querySelector(".js-cart-quantity").innerHTML = quantity;
+};
+
 // Make "Add to Cart" button functional
 document.querySelectorAll(".js-add-to-cart-button").forEach((btn) => {
   btn.addEventListener("click", () => {
@@ -71,7 +81,7 @@ document.querySelectorAll(".js-add-to-cart-button").forEach((btn) => {
 
     // Add to cart
     addToCart(productId);
-
+    updateQuantityCount();
     console.log(cart);
   });
 });
