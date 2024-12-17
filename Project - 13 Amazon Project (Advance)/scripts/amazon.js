@@ -1,6 +1,4 @@
-// Challenge 1 - Render the list of products to Home page(amazon)
-// Use products.js file to get the list of products
-
+// Single Product HTML
 let productHTML = "";
 
 products.forEach((product) => {
@@ -53,10 +51,30 @@ products.forEach((product) => {
             Added
           </div>
 
-          <button class="add-to-cart-button button-primary">Add to Cart</button>
+          <button data-product-id="${
+            product.id
+          }" class="add-to-cart-button button-primary js-add-to-cart-button">Add to Cart</button>
         </div>
     `;
 });
 
-// Render to DOM
+// Render products to DOM dynamically
 document.querySelector(".js-products-grid").innerHTML = productHTML;
+
+// Challenge - 2 Make "Add to Cart" button functional
+document.querySelectorAll(".js-add-to-cart-button").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    // How to know which button should be clicked to add that particular product to the cart
+    // Useing: Data Attribute
+    // Allow to attach information to an element
+    const productId = btn.dataset.productId;
+
+    // Add to cart
+    cart.push({
+      productId,
+      quantity: 1,
+    });
+
+    console.log(cart);
+  });
+});
